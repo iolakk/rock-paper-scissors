@@ -22,4 +22,22 @@ function getComputerChoice() {
     return choice;
 }
     
-console.log(getComputerChoice());
+function getHumanChoice() {
+    let choice = prompt("Choose: Rock, Paper, Scissors");
+    let choiceToLower = choice.toLowerCase();
+
+    if (choiceToLower == "rock" 
+    || choiceToLower == "paper"
+    || choiceToLower == "scissors") {
+        return choiceToLower;
+        
+    } else {
+        getHumanChoice();
+    }
+
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+console.log(getHumanChoice());
