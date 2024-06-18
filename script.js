@@ -1,3 +1,4 @@
+const body = document.querySelector("body");
 const buttonsBlock = document.querySelector(".buttons");
 
 const rockButton = document.createElement("button");
@@ -28,7 +29,11 @@ buttonsBlock.appendChild(paperButton);
 buttonsBlock.appendChild(scissorsButton);
 
 const computerChoiceImage = document.querySelector(".computerChoiceImage");
+const playerChoiceImage = document.querySelector(".playerChoiceImage");
 const chooseText = document.querySelector("#choose");
+
+const playerScoreText = document.querySelector("#playerScore");
+const computerScoreText = document.querySelector("#computerScore");
 
 function getRandomInt() {
     return Math.floor(Math.random() * 3);
@@ -75,8 +80,6 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice){
     let result;
 
-    console.log(`You went: ${humanChoice}`);
-    console.log(`Computer went: ${computerChoice}`);
     switch(computerChoice){
         case "rock":
             computerChoiceImage.src = "images/rock.png";
@@ -118,43 +121,32 @@ function playRound(humanChoice, computerChoice){
     }
 
     chooseText.textContent = result;
+    playerScoreText.textContent = humanScore;
+    computerScoreText.textContent = computerScore;
+
+    if (humanScore + computerScore == 5){
+        const resultText = document.createElement("h1");
+    
+        if (humanScore > computerScore){
+            resultText.textContent = "Player wins!";
+
+        } else resultText.textContent = "CPU wins!";
+
+
+        body.appendChild(resultText);
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 buttonsBlock.addEventListener("click", (event) => {
     let target = event.target;
     let computerSelection = getComputerChoice();
     
-    switch(target.id){
-        case "rock":
-            console.log(playRound("rock", computerSelection));
-            break;
-        case "paper":
-            console.log(playRound("paper", computerSelection));
-            break;
-        case "scissors":
-            console.log(playRound("scissors", computerSelection));
-            break;
-    }
+    playRound(target.id, computerSelection);
 });
 
-/*function playGame(){
-    let roundsAmount = +prompt("How many rounds do you want to play?");
 
-    humanScore = 0;
-    computerScore = 0;
-
-    for (let i = 1; i <= roundsAmount; i++){
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-    
-        console.log(playRound(humanSelection, computerSelection));
-        console.log("----[Score]----");
-        console.log(`Player: ${humanScore} CPU: ${computerScore}`);
-    }
-}
-
-playGame();
-*/
 
 
 
