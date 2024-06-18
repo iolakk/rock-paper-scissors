@@ -27,6 +27,9 @@ buttonsBlock.appendChild(rockButton);
 buttonsBlock.appendChild(paperButton);
 buttonsBlock.appendChild(scissorsButton);
 
+const computerChoiceImage = document.querySelector(".computerChoiceImage");
+const chooseText = document.querySelector("#choose");
+
 function getRandomInt() {
     return Math.floor(Math.random() * 3);
 }
@@ -74,6 +77,17 @@ function playRound(humanChoice, computerChoice){
 
     console.log(`You went: ${humanChoice}`);
     console.log(`Computer went: ${computerChoice}`);
+    switch(computerChoice){
+        case "rock":
+            computerChoiceImage.src = "images/rock.png";
+            break;
+        case "paper":
+            computerChoiceImage.src = "images/paper.png";
+            break;
+        case "scissors":
+            computerChoiceImage.src = "images/scissor.png";
+            break;
+    }
 
     if (humanChoice == "rock" && computerChoice == "paper"){
         result = "You lose paper beats rock!";
@@ -103,15 +117,22 @@ function playRound(humanChoice, computerChoice){
         result = "Draw!";
     }
 
-    return result;
+    chooseText.textContent = result;
 }
 
-buttonsBlock.addEventListener('click', (event) => {
+buttonsBlock.addEventListener("click", (event) => {
     let target = event.target;
+    let computerSelection = getComputerChoice();
     
     switch(target.id){
         case "rock":
-            console.log("You chose rock");
+            console.log(playRound("rock", computerSelection));
+            break;
+        case "paper":
+            console.log(playRound("paper", computerSelection));
+            break;
+        case "scissors":
+            console.log(playRound("scissors", computerSelection));
             break;
     }
 });

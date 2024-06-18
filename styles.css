@@ -1,12 +1,59 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: rgb(236, 247, 248);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.window {
+    display: flex;
+    justify-content: center;
+}
+
+#gameScreen {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(187, 225, 231);
+    border-radius: 10px;
+    width: 1000px;  
+
+    margin: 12px;
+}
+
+h1 {
+    margin: 15px 0 15px 0;
+}
+
+.computerChoice, #playerChoice {
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#choose {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#imageSection {
+    display: flex;
+    justify-content: center;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
     gap: 16px;
+
+    margin-bottom: 15px;
 }
 
-.button {
+.button, #computerImage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +70,12 @@ button:hover {
     cursor: pointer;
 }
 
-.button img {
+.button img, #computerImage img {
     height: 70px;
     width: 70px;
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
