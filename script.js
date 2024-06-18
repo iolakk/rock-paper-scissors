@@ -1,3 +1,32 @@
+const buttonsBlock = document.querySelector(".buttons");
+
+const rockButton = document.createElement("button");
+let rockImage = document.createElement("img");
+rockImage.src = "images/rock.png";
+rockButton.appendChild(rockImage);
+
+const paperButton = document.createElement("button");
+let paperImage = document.createElement("img");
+paperImage.src = "images/paper.png";
+paperButton.appendChild(paperImage);
+
+const scissorsButton = document.createElement("button");
+let scissorsImage = document.createElement("img");
+scissorsImage.src = "images/scissor.png";
+scissorsButton.appendChild(scissorsImage);
+
+rockButton.classList.add("button");
+paperButton.classList.add("button");
+scissorsButton.classList.add("button");
+
+rockImage.setAttribute("id", "rock");
+paperImage.setAttribute("id", "paper");
+scissorsImage.setAttribute("id", "scissors");
+
+buttonsBlock.appendChild(rockButton);
+buttonsBlock.appendChild(paperButton);
+buttonsBlock.appendChild(scissorsButton);
+
 function getRandomInt() {
     return Math.floor(Math.random() * 3);
 }
@@ -77,7 +106,17 @@ function playRound(humanChoice, computerChoice){
     return result;
 }
 
-function playGame(){
+buttonsBlock.addEventListener('click', (event) => {
+    let target = event.target;
+    
+    switch(target.id){
+        case "rock":
+            console.log("You chose rock");
+            break;
+    }
+});
+
+/*function playGame(){
     let roundsAmount = +prompt("How many rounds do you want to play?");
 
     humanScore = 0;
@@ -94,7 +133,7 @@ function playGame(){
 }
 
 playGame();
-
+*/
 
 
 

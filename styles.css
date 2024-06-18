@@ -1,0 +1,29 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    gap: 16px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100px;
+    width: 100px;
+    background-color: rgb(125, 208, 219);
+    border: 0;
+
+    border-radius: 100px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.button img {
+    height: 70px;
+    width: 70px;
+}
